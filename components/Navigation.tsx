@@ -8,8 +8,7 @@ import { ArrowUpRight } from '@phosphor-icons/react';
 import { MagneticButton } from '@/components/ui/MagneticButton';
 
 const navLinks = [
-  { label: 'Services', href: '#services' },
-  { label: 'About Us', href: '#about' },
+  { label: 'About Us', href: '/about' },
 ];
 
 export default function Navigation() {
@@ -49,13 +48,13 @@ export default function Navigation() {
           {/* Desktop: links + CTA */}
           <div className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.label}
                 href={link.href}
                 className="text-sm font-medium tracking-wide text-white/70 hover:text-white transition-colors duration-300"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
 
             <MagneticButton>
@@ -101,19 +100,23 @@ export default function Navigation() {
           >
             <nav className="flex flex-col gap-2" aria-label="Mobile navigation">
               {navLinks.map((link, i) => (
-                <motion.a
+                <Link
                   key={link.label}
                   href={link.href}
-                  custom={i}
-                  variants={linkVariants}
-                  initial="closed"
-                  animate="open"
-                  exit="closed"
-                  className="py-4 text-4xl font-semibold tracking-tighter text-[#F0EEE8] border-b border-white/[0.06] hover:text-[#2DD4BF] transition-colors duration-300"
                   onClick={() => setOpen(false)}
+                  className="py-4 text-4xl font-semibold tracking-tighter text-[#F0EEE8] border-b border-white/[0.06] hover:text-[#2DD4BF] transition-colors duration-300 block"
                 >
-                  {link.label}
-                </motion.a>
+                  <motion.span
+                    custom={i}
+                    variants={linkVariants}
+                    initial="closed"
+                    animate="open"
+                    exit="closed"
+                    className="block"
+                  >
+                    {link.label}
+                  </motion.span>
+                </Link>
               ))}
               <motion.a
                 href="/book-consultation"

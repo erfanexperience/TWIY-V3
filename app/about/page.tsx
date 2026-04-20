@@ -68,19 +68,8 @@ export default function AboutPage() {
       <Navigation />
 
       {/* ── Hero ── */}
-      <section className="relative min-h-[70vh] flex items-end overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/Assets/2.webp"
-            alt="TWIY Health medical representative approaching the operating room"
-            fill
-            className="object-cover object-center"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#06060A] via-[#06060A]/60 to-[#06060A]/20" />
-        </div>
-
-        <div className="relative z-10 max-w-[1280px] mx-auto px-6 lg:px-10 pb-24 pt-40 w-full">
+      <section className="pt-40 pb-20">
+        <div className="max-w-[1280px] mx-auto px-6 lg:px-10">
           <FadeIn delay={0.1}>
             <span className="inline-flex items-center rounded-full px-3 py-1 text-[10px] uppercase tracking-[0.22em] font-medium bg-[#2DD4BF]/[0.08] text-[#2DD4BF] ring-1 ring-[#2DD4BF]/20 mb-6">
               Who we are

@@ -17,11 +17,16 @@ export const metadata: Metadata = {
     'The regional leader in foot and ankle surgical distribution across the Southeastern United States. Advanced biologics and fixation technologies with unmatched case support.',
   keywords:
     'foot ankle surgical distribution, Southeast, biologics, fixation, Medline, OSSIO, BoneSupport, Acera Surgical, Biopoly',
+  icons: {
+    icon: '/Assets/ICON.ico',
+    shortcut: '/Assets/ICON.ico',
+  },
   openGraph: {
     title: 'TWIY Health — Foot & Ankle Surgical Distribution',
     description:
       'Advanced biologics and fixation technologies across the Southeast with precision, reliability, and unmatched case support.',
     type: 'website',
+    images: [{ url: '/Assets/OG Photo.png', width: 1200, height: 630, alt: 'TWIY Health' }],
   },
 };
 

@@ -34,7 +34,7 @@ export default function Navigation() {
         <div className="max-w-[1280px] mx-auto px-8 lg:px-12 h-20 flex items-center justify-between">
 
           {/* Logo */}
-          <a href="#" aria-label="TWIY Health — Home" className="flex-shrink-0">
+          <Link href="/" aria-label="TWIY Health — Home" className="flex-shrink-0">
             <Image
               src="/Assets/logo.png"
               alt="TWIY Health"
@@ -43,7 +43,7 @@ export default function Navigation() {
               className="h-8 w-auto object-contain"
               priority
             />
-          </a>
+          </Link>
 
           {/* Desktop: links + CTA */}
           <div className="hidden lg:flex items-center gap-8">

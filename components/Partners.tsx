@@ -65,7 +65,7 @@ export default function Partners() {
                   alt={logo.alt}
                   width={400}
                   height={140}
-                  className="h-12 w-auto object-contain opacity-75 group-hover:opacity-100 transition-opacity duration-500 brightness-0 invert"
+                  className="h-20 w-auto object-contain opacity-75 group-hover:opacity-100 transition-opacity duration-500 brightness-0 invert"
                   loading="lazy"
                 />
               </div>

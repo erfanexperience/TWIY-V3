@@ -17,10 +17,6 @@ export const metadata: Metadata = {
     'The regional leader in surgical distribution across the Southeastern United States. Advanced biologics and fixation technologies with unmatched case support.',
   keywords:
     'surgical distribution, Southeast, biologics, fixation, clinical support, Medline, OSSIO, BoneSupport, Acera Surgical, Biopoly',
-  icons: {
-    icon: '/Assets/ICON.ico',
-    shortcut: '/Assets/ICON.ico',
-  },
   openGraph: {
     title: 'TWIY Health — Advanced Surgical Distribution & Clinical Support',
     description:

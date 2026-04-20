@@ -56,7 +56,7 @@ export default function FinalCTA() {
             id="cta-heading"
             className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tighter leading-none text-[#F0EEE8] mb-6"
           >
-            Partner with the Southeast&rsquo;s focused foot & ankle distribution team
+            Partner with the Southeast&rsquo;s focused surgical distribution team
           </h2>
 
           <p className="text-[#CBD5E1] text-base leading-relaxed mb-12 max-w-[50ch]">

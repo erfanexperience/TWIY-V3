@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --gradient-color: #2DD4BF;
+    --sparkles-color: #2DD4BF;
+  }
+}
+
+@theme {
+  /* ── Brand tokens ── */
+  --color-base:         #06060A;
+  --color-surface:      #0E0E14;
+  --color-card:         #13131C;
+  --color-accent:       #2DD4BF;
+  --color-accent-hover: #5EEAD4;
+  --color-accent-dim:   rgba(45, 212, 191, 0.08);
+  --color-accent-ring:  rgba(45, 212, 191, 0.2);
+
+  --color-text-primary:   #F0EEE8;
+  --color-text-secondary: #64748B;
+  --color-text-tertiary:  #3D4A5C;
+
+  --color-hairline:     rgba(255, 255, 255, 0.06);
+  --color-hairline-mid: rgba(255, 255, 255, 0.1);
+
+  /* ── Font ── */
+  --font-sans: var(--font-outfit), 'system-ui', sans-serif;
+
+  /* ── Easing ── */
+  --ease-premium: cubic-bezier(0.32, 0.72, 0, 1);
+  --ease-spring:  cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ── Global reset ── */
+html {
+  scroll-behavior: smooth;
+  background-color: #06060A;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #06060A;
+  color: #F0EEE8;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* ── Ethereal radial gradient orbs — fixed, pointer-events-none ── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 80% 60% at 8%  12%, rgba(45,212,191,0.055) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 50% at 92% 88%, rgba(45,212,191,0.035) 0%, transparent 70%);
+}
+
+/* ── Subtle grain overlay ── */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.028;
+  background-image:
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  background-size: 128px 128px;
+}
+
+/* ── Main content sits above fixed overlays ── */
+/* header is intentionally excluded — it uses fixed positioning */
+main, footer {
+  position: relative;
+  z-index: 2;
+}
+
+/* ── Smooth scrolling and reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ── Focus styles ── */
+:focus-visible {
+  outline: 1.5px solid #2DD4BF;
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* ── Text balance for headlines ── */
+h1, h2, h3 {
+  text-wrap: balance;
+}
+
+/* ── All content text inside sections defaults to visible colors ── */
+section p,
+section li {
+  color: #CBD5E1;
+}
+
+section h2,
+section h3,
+section h4 {
+  color: #F0EEE8;
+}
+
+/* ── Tabular figures for numbers ── */
+.tabular {
+  font-variant-numeric: tabular-nums;
+}

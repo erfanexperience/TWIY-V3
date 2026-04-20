@@ -1,0 +1,384 @@
+{
+  "conversation": {
+    "title": "TWIY Health A2P 10DLC Twilio Campaign Fix",
+    "date": "2026-04-19",
+    "summary": "Troubleshooting and fixing a rejected Twilio A2P 10DLC SMS campaign for TWIY Health by updating the website privacy policy, terms & conditions, and homepage CTA disclosure.",
+    "messages": [
+      {
+        "role": "user",
+        "content": "I have a problem with Twilio Campaign. I set up a number for a company called TWIY Health, technically only doctors can call this number to create a case for themselves. But my campaign is getting rejected again and again. Anything I fix in privacy policy of website its not effective, I created the website myself so you can see what's going on, tell me exactly what I need to know to make the campaign okay so it will be approved.",
+        "attachments": [
+          "Twilio A2P Campaign Edit modal screenshots x3"
+        ]
+      },
+      {
+        "role": "assistant",
+        "summary": "Identified root issue: TCR reviewers could not verify the Call to Action (CTA) on the website. The phone number existed but had no SMS consent disclosure adjacent to it.",
+        "key_points": [
+          "Root cause: No SMS consent disclosure next to the phone number on the website",
+          "Reviewers visit the site and need to physically see the number + disclosure together",
+          "Privacy Policy and Terms pages needed more structured SMS sections",
+          "Campaign description needed stronger TCPA language",
+          "Required disclosure elements: STOP, HELP, rates may apply, consent not required for purchase, links to Privacy Policy and T&C"
+        ]
+      },
+      {
+        "role": "user",
+        "content": "I'm using Claude Code to update website, write a prompt and tell it to fix everything in all landing page / terms page and privacy page."
+      },
+      {
+        "role": "assistant",
+        "summary": "Provided a comprehensive Claude Code prompt covering all three pages.",
+        "claude_code_prompt": {
+          "homepage_changes": [
+            "Make phone number (754) 231-1006 prominent",
+            "Add SMS consent disclosure directly below every instance of the phone number",
+            "Disclosure text: 'By texting or calling this number, you consent to receive transactional SMS messages from TWIY Health related to your intake request. Message frequency varies. Message and data rates may apply. Reply STOP to cancel, HELP for help. Consent is not a condition of any purchase. Privacy Policy | Terms & Conditions'",
+            "Style as small gray text (text-xs text-gray-500)"
+          ],
+          "privacy_policy_changes": [
+            "Add brand/legal name: TWIY Health",
+            "Add program purpose: transactional/relationship SMS, no marketing",
+            "Add published intake number: (754) 231-1006",
+            "Add opt-in method #1: Text-in description",
+            "Add opt-in method #2: Call-in description",
+            "Add: 'Browsing this website alone does not enroll you in SMS'",
+            "Add message frequency, rates, STOP, HELP, consent not required, carriers not liable",
+            "Make SMS section visually distinct with border/background box"
+          ],
+          "terms_conditions_changes": [
+            "Add Section 3.1 'Message flow / call to action (summary for registration)'",
+            "Include both opt-in methods in a scannable block",
+            "Add consent not a condition of purchase language",
+            "Add STOP, HELP, rates disclosure",
+            "Add link to Privacy Policy",
+            "Phone number (754) 231-1006 must appear in this section"
+          ],
+          "footer_changes": [
+            "Add phone number (754) 231-1006 as tel: link",
+            "Add below it: 'SMS: Text (754) 231-1006 | Msg & data rates may apply | Reply STOP to cancel | Privacy Policy | Terms & Conditions'"
+          ]
+        }
+      },
+      {
+        "role": "user",
+        "content": "Is everything okay? Double check.",
+        "attachments": [
+          "Homepage screenshot",
+          "Privacy Policy screenshot",
+          "Terms & Conditions screenshot"
+        ]
+      },
+      {
+        "role": "assistant",
+        "summary": "Audit results after first round of updates.",
+        "audit_results": {
+          "passing": 11,
+          "failing": 2,
+          "warnings": 2,
+          "verdict": "Almost there but 2 critical issues remain on homepage",
+          "homepage": {
+            "passing": [
+              "Phone number visible in footer",
+              "Links to Privacy Policy and Terms visible"
+            ],
+            "failing": [
+              "No SMS consent disclosure next to the phone number on the page",
+              "No STOP/HELP/rates disclosure near the phone number"
+            ],
+            "warnings": [
+              "Phone number only in footer — should be more prominent"
+            ]
+          },
+          "privacy_policy": {
+            "passing": [
+              "Brand name stated",
+              "Both phone numbers listed",
+              "Both opt-in methods described",
+              "Browsing alone does not enroll stated",
+              "All required disclosures present",
+              "Links to T&C present"
+            ],
+            "warnings": [
+              "SMS section box title 'SMS PROGRAM — A2P 10DLC REFERENCE (CARRIER & TWILIO REVIEW)' looks odd — suggest simplifying"
+            ]
+          },
+          "terms_conditions": {
+            "passing": [
+              "Section 3.1 CTA summary box present",
+              "Both opt-in methods listed",
+              "STOP/HELP/rates/carrier disclaimer present",
+              "Links to Privacy Policy present"
+            ]
+          }
+        }
+      },
+      {
+        "role": "user",
+        "content": "Did all the updates.",
+        "attachments": [
+          "Updated homepage screenshot",
+          "Updated Privacy Policy screenshot",
+          "Updated Terms & Conditions screenshot"
+        ]
+      },
+      {
+        "role": "assistant",
+        "summary": "Second audit — one critical issue remaining.",
+        "audit_results": {
+          "passing": 12,
+          "failing": 1,
+          "warnings": 2,
+          "verdict": "One critical issue remains on homepage",
+          "remaining_issue": "The phone number in the bottom CTA hero section ('Partner with the Southeast's focused foot & ankle distribution team') has the number (754) 231-1006 shown prominently but the SMS consent disclosure was only in the footer, not directly below that CTA number.",
+          "fix_provided": "Add SMS disclosure directly below the (754) 231-1006 in the dark-background CTA section, styled white/semi-transparent text with Privacy Policy and Terms & Conditions links"
+        }
+      },
+      {
+        "role": "user",
+        "content": "It's already there.",
+        "attachments": [
+          "Zoomed in CTA section screenshot"
+        ]
+      },
+      {
+        "role": "assistant",
+        "summary": "Confirmed CTA section is fully compliant.",
+        "confirmed_elements": [
+          "Phone number (754) 231-1006 prominently displayed",
+          "SMS consent disclosure directly below the number",
+          "STOP, HELP, rates, consent-not-required all present",
+          "Privacy Policy and Terms & Conditions linked"
+        ],
+        "verdict": "All three pages fully compliant. Safe to resubmit."
+      },
+      {
+        "role": "user",
+        "content": "Okay what needs to be changed inside the Twilio portal? Or is it good as it is and I just need to resubmit?",
+        "twilio_campaign_fields_provided": {
+          "campaign_description": "This campaign supports healthcare case intake coordination for TWIY Health. Patients, healthcare staff, or case coordinators contact our intake line to initiate a case intake request. After a user calls or texts our intake number, our system may send transactional SMS messages requesting structured intake information or providing updates related to that case. These messages are strictly transactional and related to healthcare case intake coordination. No marketing or promotional messaging is sent. Users initiate communication themselves through the phone number listed on our website (https://twiyhealth.com), which constitutes consent to receive SMS responses related to their intake request.",
+          "sample_message_1": "Welcome to TWIY Health Case Intake. Please reply with the following information: Doctor name, Hospital, Case date and time, Procedure details, and any special requests so we can process your intake request. Reply STOP to opt out. Reply HELP for assistance. Message frequency varies. Message and data rates may apply.",
+          "sample_message_2": "Thank you. We received your case information. Our intake team will review your request and follow up if additional details are needed. Reply STOP to opt out. Reply HELP for help. Message frequency varies. Message and data rates may apply.",
+          "sample_message_3": "TWIY Health Intake Update: We need additional details to continue processing your case. Please reply with the procedure type and preferred hospital location. Reply STOP to opt out. Reply HELP for assistance.",
+          "consent_field": "End users consent to receive SMS only by affirmatively initiating contact with TWIY Health using the intake phone number published on our public website at https://twiyhealth.com (for example in the site footer and contact-related areas). Opt-in methods we use: (1) Text-in: the user sends a text from their own mobile phone to that number—including any natural first message or a keyword such as START—thereby requesting a response and consenting to transactional/relationship SMS about their inquiry. (2) Call-in: the user calls that number; if during the call they agree to receive text messages for scheduling or coordination, that agreement is consent for SMS for that purpose. Browsing the website alone does not enroll anyone in SMS. Messages are limited to transactional and relationship content tied to the user's request (for example confirmations, clarifications, and scheduling or coordination updates). We do not send unrelated promotional SMS campaigns through this program. Message frequency varies with the conversation and the status of the request; there is no fixed recurring marketing schedule. Required disclosures: Message and data rates may apply. Reply STOP to cancel SMS from this number/program. Reply HELP for help (or contact us using the information in our policies). Consent is not a condition of purchasing goods or services where applicable law treats that separately. Public policies (no login required): Privacy Policy at https://twiyhealth.com/privacy-policy and Terms & Conditions at https://twiyhealth.com/terms-and-conditions describe the SMS program, consent, frequency, rates, opt-out, and help. Carriers are not liable for delayed or undelivered messages.",
+          "privacy_policy_url": "https://twiyhealth.com/privacy-policy",
+          "terms_url": "https://twiyhealth.com/terms-and-conditions"
+        }
+      },
+      {
+        "role": "assistant",
+        "summary": "No changes needed in Twilio. The rejection was because the website lacked the CTA disclosure — now fixed. Advised to resubmit as-is by clicking Update then resubmit.",
+        "action": "Just resubmit — do not change anything in Twilio portal"
+      }
+    ],
+    "final_status": {
+      "website_compliant": true,
+      "twilio_fields_compliant": true,
+      "action_required": "Resubmit Twilio campaign — no further changes needed",
+      "pages_updated": [
+        "https://twiyhealth.com (homepage)",
+        "https://twiyhealth.com/privacy-policy",
+        "https://twiyhealth.com/terms-and-conditions"
+      ],
+      "key_fix_that_resolved_rejection": "Added SMS consent disclosure directly below the (754) 231-1006 phone number in the homepage CTA section, including STOP/HELP/rates/consent-not-required language and links to Privacy Policy and Terms & Conditions"
+    }
+  }
+}
+
+
+
+--privacy policy page
+
+TWIY Health
+
+Privacy Policy
+Effective date: April 8,
+2026 · Last updated: April 15,
+2026
+
+This Privacy Policy explains how TWIY Health (“TWIY,” “we,” “us,” or “our”) collects, uses, discloses, and safeguards information when you interact with our company — including when you visit this website, request information, book a consultation, or contact us by phone or SMS. TWIY is a U.S.-based business focused on surgical distribution partnerships and related coordination; we describe our typical operations on our homepage and About pages.
+
+Public verification (A2P 10DLC): This Policy is published at https: //twiyhealth.com/privacy-policy. Our Terms of Service (including SMS terms) are at https://twiyhealth.com/terms-and-conditions. Carrier and Twilio reviewers may use these URLs to verify our call to action, consent methods, and required disclosures.
+SMS program (A2P 10DLC — brand and program identification): TWIY Health operates a business intake and coordination messaging program. Messages are sent only in connection with inquiries or coordination you start with us. The published number for calls and texts is (754) 231-1006 / (754) 231-1006 (this number must match your registered campaign). We do not use this program for unrelated promotional or blast marketing.
+1. Information we collect
+Depending on how you choose to interact with us, we may collect:
+
+Identifiers and contact details — such as your name, organization, work email, phone number, and similar information you submit through forms or messages.
+Professional and operational details — information you share about territories, case support needs, scheduling, manufacturer partnerships, or other business topics relevant to distribution or intake coordination.
+Communications content — the content of emails, SMS, phone notes (where permitted), and other messages you send us when you initiate contact or respond to our replies.
+Technical data — basic device and log information commonly collected by websites (such as browser type, general geographic region derived from IP address, and pages visited) to operate and secure our site.
+We collect sensitive categories of information only where you choose to provide them and where lawful.
+
+2. How we use information
+We use information to operate our business and serve requests you initiate, including to:
+
+Respond to inquiries, consultation requests, and intake-related communications.
+Coordinate logistics, follow-ups, clarifications, and transactional updates tied to an active request.
+Operate, maintain, and improve our website and internal processes; detect fraud or abuse.
+Comply with law, regulation, court orders, or enforceable governmental requests.
+No marketing SMS. We do not send promotional or advertising SMS campaigns to numbers collected through our intake line. SMS are limited to transactional or relationship messages directly tied to a request you started with us (for example, confirmations, scheduling clarifications, or status updates).
+
+3. SMS program: message flow, consent, and your choices
+SMS Program (A2P 10DLC)
+a) Brand / legal name: TWIY Health
+b) Program purpose: Transactional and relationship SMS tied to healthcare case intake coordination; no marketing or promotional messages.
+c) Published intake number: (754) 231-1006 / (754) 231-1006 (SMS)
+d) Opt-in method #1 — Text-in: You consent by sending any text message (including START or any natural first message) to (754) 231-1006 from your mobile phone.
+e) Opt-in method #2 — Call-in: You consent by calling (754) 231-1006 and agreeing during the call to receive SMS for scheduling or coordination.
+f) Website browsing: Browsing this website alone does not enroll you in SMS.
+g) Message frequency: Varies based on your request; not a fixed recurring schedule.
+h) Rates: Message and data rates may apply.
+i) Opt-out: Reply STOP at any time to cancel SMS from this number.
+j) Help: Reply HELP for assistance or contact us at contact@twiyhealth.com.
+k) No purchase required: Consent is not a condition of purchasing any goods or services.
+l) Carrier disclaimer: Carriers are not liable for delayed or undelivered messages.
+m) Policies: https: //twiyhealth.com/privacy-policy | https://twiyhealth.com/terms-and-conditions
+This section is written so carriers, Twilio, and other reviewers can verify our call to action, how users opt in, and required disclosures for A2P 10DLC registration. You may copy language from this section into your “Message Flow / Call to Action” field if it accurately reflects your live process.
+
+3.1 Brand identification
+Brand / legal name: TWIY Health. Program purpose: Transactional and relationship SMS tied to business intake, consultation coordination, and follow-up you request with us — not mass marketing.
+
+3.2 Public call to action — how you opt in (all methods we use)
+You are not enrolled in SMS by browsing this website alone. Consent is collected only through affirmative, user-initiated contact with our published number or channel, as follows:
+
+Text-in (mobile originated): You send a text message from your mobile phone to (754) 231-1006. That includes any natural first message (for example introducing yourself or your request) or a keyword such as START if you choose to use one. Sending that message means you are asking TWIY Health to reply by SMS about your inquiry.
+Call-in: You call (754) 231-1006. If, during the call, you agree to receive SMS (for example to confirm details, schedule, or continue the conversation by text), that agreement is your consent for SMS for that coordination thread.
+Website context: The same number appears on our public website (for example footer and contact-related areas). Before you text or call, you can read this Privacy Policy at https: //twiyhealth.com/privacy-policy and our Terms at https://twiyhealth.com/terms-and-conditions.
+Consent is not a condition of purchase of any good or service where applicable law draws that distinction. If we add another opt-in method (for example a checked box on a web form that explicitly consents to SMS and lists the program), we will update this Policy and our Terms so all methods remain publicly documented.
+
+3.3 What we send and message frequency
+Message types: SMS may include intake acknowledgments, confirmations, clarifications, scheduling or logistics coordination, status updates, and other operational content directly related to a request or conversation you started with us.
+
+Frequency: This is a conversational / transactional program, not a recurring subscription marketing campaign. Message frequency varies based on your needs and the status of your request; there is no fixed daily or weekly schedule.
+
+3.4 Required disclosures: rates, opt-out, help, and policies
+Message and data rates may apply. Check your carrier plan.
+Opt-out: Reply STOP at any time to cancel SMS from this number/program. We will honor opt-out requests as required by applicable rules (subject to narrow exceptions such as legally required or security-related messages, if any).
+Help: Reply HELP for assistance, or contact us using the “Contact us” section below.
+Privacy Policy: https: //twiyhealth.com/privacy-policy
+Terms & Conditions (Terms of Service): https: //twiyhealth.com/terms-and-conditions
+3.5 Example first reply (for alignment with message samples)
+To keep our registration and live messaging aligned, an initial automated or manual reply may include elements such as: brand name (TWIY Health), that message frequency varies, that message and data rates may apply, how to opt out (STOP), how to get help (HELP or our contact information), and links or short references to our Terms and Privacy Policy. Exact wording may vary slightly as long as these points remain clear.
+
+3.6 Carriers and delivery partners
+SMS may be delivered through telecommunications carriers and messaging platforms (such as Twilio). Carriers are not liable for delayed or undelivered messages. Delivery depends on your device, carrier coverage, and network conditions.
+
+4. Disclosures to third parties
+We do not sell personal information. We do not sell or share mobile numbers or SMS opt-in data for third-party marketing or promotional purposes.
+
+We may disclose information to:
+
+Service providers — such as hosting, communications (including telephony/SMS carriers and platforms like Twilio), email, analytics, and CRM tools that process data under contract for us.
+Legal and safety — when we believe disclosure is required by law or necessary to protect rights, safety, or security.
+Business transfers — in connection with a merger, acquisition, or asset sale, subject to appropriate safeguards.
+5. Retention and security
+We retain information only as long as reasonably necessary for the purposes described above, including to meet legal, accounting, or reporting requirements. We use reasonable administrative, technical, and organizational safeguards designed to protect information. No online or electronic transmission is completely secure.
+
+6. Your choices and rights
+Depending on where you live, you may have rights to access, correct, delete, or restrict certain processing of your personal information, or to opt out of certain disclosures. To exercise rights, contact us using the details below. We will respond in line with applicable law.
+
+7. Children's privacy
+Our services are directed to business professionals and are not intended for children under 13. We do not knowingly collect personal information from children.
+
+8. Changes to this Policy
+We may update this Privacy Policy from time to time. The “Last updated” date at the top will change when we do. Where required, we will provide additional notice. Continued use of our website or SMS program after updates means you acknowledge the revised Policy.
+
+9. Contact us
+Questions about this Privacy Policy, our data practices, or this SMS program may be directed to:
+
+Email: contact@twiyhealth.com
+Phone: (754) 231-1006
+Intake / SMS line (published on this site): (754) 231-1006
+Business mailing address:
+
+TWIY Health
+United States
+For Terms & Conditions (Terms of Service), including additional SMS terms, please see our separate terms page.
+
+
+-- Terms and Conditions page
+
+TWIY Health
+
+Terms & Conditions
+Effective date: April 8,
+2026 · Last updated: April 15,
+2026 · These Terms also serve as our Terms of Service where that label is required by carriers or platforms (including A2P 10DLC).
+
+These Terms & Conditions (“Terms”) govern your access to and use of the public website operated by TWIY Health (“TWIY,” “we,” “us,” or “our”), and your communications with us — including phone and SMS to the intake number published on this site. By contacting us or using this site, you agree to these Terms and our Privacy Policy. If you do not agree, do not use this site or our messaging channels.
+
+Public verification (A2P 10DLC): These Terms are published at https: //twiyhealth.com/terms-and-conditions. Our Privacy Policy is at https://twiyhealth.com/privacy-policy. Together they document how users opt in to SMS, message frequency, rates, opt-out and help, and program scope for carrier review.
+1. What TWIY does
+TWIY Health provides surgical distribution–related services in the United States, including partnership, territory, and operational coordination with healthcare professionals and manufacturers. We summarize our focus on the homepage and About pages. We may provide intake, scheduling, or follow-up coordination by phone, email, or SMS when you request it.
+
+TWIY is not a clinic or hospital and does not provide medical diagnosis, treatment, emergency services, or legal advice. Information we share is for business coordination unless separately governed by a written agreement between you and TWIY. In a medical emergency, call 911 (or your local emergency number).
+
+2. Eligibility and acceptable use
+This site and our communication lines are intended for adults engaging in good-faith business discussions. You agree not to misuse the site or SMS/phone channels — including by transmitting unlawful, harassing, fraudulent, or malicious content, attempting unauthorized access to our systems, or impersonating another party.
+
+3. SMS program terms (A2P 10DLC)
+The following applies to SMS messages sent by TWIY Health in connection with inquiries or coordination you initiate. Our published intake number for calls and texts is (754) 231-1006 / (754) 231-1006 — it must match the number on your Twilio / carrier registration.
+
+3.1 Message flow / call to action (summary for registration)
+Call to Action & Opt-In Summary — A2P 10DLC Carrier Review
+Brand: TWIY Health
+Intake number: (754) 231-1006 (calls) / (754) 231-1006 (SMS)
+CTA / Opt-in method #1 — Text-in: Text us at (754) 231-1006 from your mobile phone — any first message or a keyword such as START constitutes your request for us to respond by SMS about your inquiry.
+CTA / Opt-in method #2 — Call-in: Call us at (754) 231-1006; if you agree during the call to receive text messages for scheduling or coordination, that is your consent for SMS for that purpose.
+Website browsing: Browsing this website alone does not enroll you in SMS.
+Consent is not a condition of purchase of any good or service.
+Message types: Transactional/relationship messages related to your request (for example confirmations, clarifications, scheduling updates).
+Frequency: Varies with your conversation; not a fixed recurring marketing schedule.
+Message and data rates may apply.
+Opt-out: Reply STOP at any time to cancel SMS from this number.
+Help: Reply HELP for help or contact us at contact@twiyhealth.com.
+Carriers are not liable for delayed or undelivered messages.
+Policies: Privacy Policy | Terms & Conditions
+3.2 Consent — detailed
+You consent to receive SMS from us when you affirmatively initiate contact using the published number: by texting (including “START” or any ordinary first message) or by calling and agreeing to SMS where offered. Browsing the website alone does not enroll you. Consent is not a condition of purchase of any good or service where that distinction applies under applicable law.
+
+3.3 Use of mobile information
+Mobile opt-in and consent-related information are not sold or shared with third parties for their marketing. We use phone numbers and message content to operate this program and our business, subject to our Privacy Policy and lawful disclosures.
+
+3.4 Message scope | No unrelated marketing
+Messages are transactional and relationship in nature — for example intake acknowledgments, clarifications, scheduling or coordination updates tied to your request. We do not send unrelated promotional SMS blasts to numbers collected through this intake flow.
+
+3.5 Frequency, rates, carrier disclaimer
+Message frequency varies with your interaction and the status of your request; this is not a recurring subscription marketing program with a fixed cadence. Message and data rates may apply. Carriers are not liable for delayed or undelivered messages.
+
+3.6 Opt-out, help, and human support
+Reply STOP to cancel SMS from this number/program. Reply HELP for help. You may also contact us using the information in Section 10 below. We will process opt-out and help requests as required by applicable rules.
+
+3.7 Alignment with message content
+Your live message samples and autoresponders should remain consistent with this section — including brand name, variable frequency, rates disclosure, STOP/HELP, and references to these Terms and the Privacy Policy.
+
+4. Intellectual property
+Content on this site (text, branding, layout, graphics) is owned by TWIY or its licensors and is protected by applicable intellectual property laws. You may not copy, scrape, or reuse it for commercial purposes without our prior written permission, except as allowed by law.
+
+5. Disclaimer of warranties
+This site and our communications are provided “as is” and “as available.” To the fullest extent permitted by law, we disclaim implied warranties of merchantability, fitness for a particular purpose, and non-infringement. We do not warrant uninterrupted or error-free transmission of SMS or email.
+
+6. Limitation of liability
+To the maximum extent permitted by applicable law, TWIY and its officers, employees, contractors, and affiliates will not be liable for any indirect, incidental, special, consequential, or punitive damages, or loss of profits or data, arising from your use of the site, SMS, or phone services — including delays or failures caused by carriers or third-party platforms.
+
+Our aggregate liability for any claim arising from these Terms or related services is limited to the greater of (a) one hundred U.S. dollars (US $100) or (b) amounts you paid TWIY for the specific services giving rise to the claim in the twelve (12) months before the claim, if any.
+
+7. Indemnity
+You agree to indemnify and hold harmless TWIY from claims, losses, and expenses (including reasonable attorneys' fees) arising from your violation of these Terms, misuse of our communications, or violation of others' rights — except to the extent caused by our willful misconduct.
+
+8. Governing law and venue
+These Terms are governed by the laws of the United States and the State of Florida, without regard to conflict-of-law rules that would apply another jurisdiction's law. You agree that courts in Florida, USA, have exclusive jurisdiction over disputes arising from these Terms or your use of our services, and you consent to personal jurisdiction there, subject to any non-waivable rights you may have under consumer protection laws in your home jurisdiction.
+
+9. Changes
+We may modify these Terms at any time by posting an updated version on this site and updating the “Last updated” date. Material changes may require additional notice where required by law. Your continued use after updates constitutes acceptance unless law requires express consent.
+
+10. Contact
+For questions about these Terms or the SMS program:
+
+Email: contact@twiyhealth.com
+Phone: (754) 231-1006
+Intake / SMS: (754) 231-1006
+Business mailing address:
+
+TWIY Health
+United States

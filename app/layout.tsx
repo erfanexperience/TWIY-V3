@@ -12,17 +12,17 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: 'TWIY Health — Foot & Ankle Surgical Distribution',
+  title: 'TWIY Health — Advanced Surgical Distribution & Clinical Support',
   description:
-    'The regional leader in foot and ankle surgical distribution across the Southeastern United States. Advanced biologics and fixation technologies with unmatched case support.',
+    'The regional leader in surgical distribution across the Southeastern United States. Advanced biologics and fixation technologies with unmatched case support.',
   keywords:
-    'foot ankle surgical distribution, Southeast, biologics, fixation, Medline, OSSIO, BoneSupport, Acera Surgical, Biopoly',
+    'surgical distribution, Southeast, biologics, fixation, clinical support, Medline, OSSIO, BoneSupport, Acera Surgical, Biopoly',
   icons: {
     icon: '/Assets/ICON.ico',
     shortcut: '/Assets/ICON.ico',
   },
   openGraph: {
-    title: 'TWIY Health — Foot & Ankle Surgical Distribution',
+    title: 'TWIY Health — Advanced Surgical Distribution & Clinical Support',
     description:
       'Advanced biologics and fixation technologies across the Southeast with precision, reliability, and unmatched case support.',
     type: 'website',

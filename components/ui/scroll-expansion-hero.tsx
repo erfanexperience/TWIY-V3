@@ -240,12 +240,12 @@ const ScrollExpandMedia = ({
                       alt="TWIY Health"
                       width={200}
                       height={60}
-                      className="h-[50px] w-auto object-contain mx-auto"
+                      className="h-[45px] w-auto object-contain mx-auto"
                       priority
                     />
                   </div>
                   <h2
-                    className="text-[1.9rem] sm:text-[3rem] lg:text-[4.5rem] font-black leading-[1.05] uppercase"
+                    className="text-[1.7rem] sm:text-[2.7rem] lg:text-[4.05rem] font-black leading-[1.05] uppercase"
                     style={{
                       color: '#ffffff',
                       textShadow: '0 0 60px rgba(45,212,191,0.25), 0 2px 30px rgba(0,0,0,0.9)',

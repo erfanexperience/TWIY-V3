@@ -12,17 +12,17 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: 'TWIY Health — Advanced Surgical Distribution & Clinical Support',
+  title: 'TWIY Health — Surgical Distribution & Clinical Support',
   description:
     'The regional leader in surgical distribution across the Southeastern United States. Advanced biologics and fixation technologies with unmatched case support.',
   keywords:
     'surgical distribution, Southeast, biologics, fixation, clinical support, Medline, OSSIO, BoneSupport, Acera Surgical, Biopoly',
   openGraph: {
-    title: 'TWIY Health — Advanced Surgical Distribution & Clinical Support',
+    title: 'TWIY Health — Surgical Distribution & Clinical Support',
     description:
       'Advanced biologics and fixation technologies across the Southeast with precision, reliability, and unmatched case support.',
     type: 'website',
-    images: [{ url: '/Assets/OG Photo.png', width: 1200, height: 630, alt: 'TWIY Health' }],
+    images: [{ url: '/Assets/og-photo.png', width: 1200, height: 630, alt: 'TWIY Health' }],
   },
 };
 

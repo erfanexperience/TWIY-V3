@@ -16,9 +16,14 @@ const BLUE_CSS = `
       radial-gradient(ellipse 60% 50% at 92% 88%, rgba(10,30,80,0.40) 0%, transparent 70%) !important;
   }
 
-  /* ── Hero image — subtle dark blue overlay ── */
+  /* ── Hero background — very subtle dark blue tint ── */
   html[data-theme="blue"] .bg-black\\/10 {
-    background-color: rgba(5,20,70,0.18) !important;
+    background-color: rgba(5,20,70,0.10) !important;
+  }
+
+  /* ── Hero video overlay — dark blue tint ── */
+  html[data-theme="blue"] .bg-black\\/\\[0\\.5\\] {
+    background-color: rgba(5,20,70,0.10) !important;
   }
 
   /* ── Section backgrounds — dark navy ── */

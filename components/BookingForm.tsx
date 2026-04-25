@@ -62,10 +62,19 @@ export default function BookingForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    // Simulate async submit — replace with real API call / email service
-    await new Promise((r) => setTimeout(r, 1400));
-    setLoading(false);
-    setSubmitted(true);
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) throw new Error('Failed');
+      setSubmitted(true);
+    } catch {
+      alert('Something went wrong. Please email us directly at sales@twiyhealth.com');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -162,7 +171,7 @@ export default function BookingForm() {
                   {/* Contact info */}
                   <div className="space-y-4 border-t border-white/[0.06] pt-8">
                     {[
-                      { label: 'Email', value: 'contact@twiyhealth.com', href: 'mailto:contact@twiyhealth.com' },
+                      { label: 'Email', value: 'sales@twiyhealth.com', href: 'mailto:sales@twiyhealth.com' },
                       { label: 'Phone / SMS', value: '(754) 231-1006', href: 'tel:+17542311006' },
                       { label: 'Coverage', value: 'Southeastern United States', href: null },
                     ].map((item) => (

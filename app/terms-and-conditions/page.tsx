@@ -116,7 +116,7 @@ export default function TermsPage() {
                 <Row label="Frequency:" value="Varies with your conversation; not a fixed recurring marketing schedule." />
                 <Row label="Rates:" value="Message and data rates may apply." />
                 <Row label="Opt-out:" value="Reply STOP at any time to cancel SMS from this number." />
-                <Row label="Help:" value={<>Reply HELP for help or contact us at <a href="mailto:contact@twiyhealth.com" className="text-[#2DD4BF]">contact@twiyhealth.com</a>.</>} />
+                <Row label="Help:" value={<>Reply HELP for help or contact us at <a href="mailto:sales@twiyhealth.com" className="text-[#2DD4BF]">sales@twiyhealth.com</a>.</>} />
                 <Row label="Carrier disclaimer:" value="Carriers are not liable for delayed or undelivered messages." />
                 <Row label="Policies:" value={<><Link href="/privacy-policy" className="text-[#2DD4BF] hover:text-[#5EEAD4]">Privacy Policy</Link> | <Link href="/terms-and-conditions" className="text-[#2DD4BF] hover:text-[#5EEAD4]">Terms &amp; Conditions</Link></>} />
               </CTABox>
@@ -188,7 +188,7 @@ export default function TermsPage() {
             <p>For questions about these Terms or the SMS program:</p>
             <div className="mt-4 space-y-2">
               <p><strong className="text-[#CBD5E1]">Email:</strong>{' '}
-                <a href="mailto:contact@twiyhealth.com" className="text-[#2DD4BF] hover:text-[#5EEAD4] transition-colors">contact@twiyhealth.com</a>
+                <a href="mailto:sales@twiyhealth.com" className="text-[#2DD4BF] hover:text-[#5EEAD4] transition-colors">sales@twiyhealth.com</a>
               </p>
               <p><strong className="text-[#CBD5E1]">Phone:</strong>{' '}
                 <a href="tel:+17542311006" className="text-[#2DD4BF] hover:text-[#5EEAD4] transition-colors">(754) 231-1006</a>

@@ -71,10 +71,10 @@ export default function Footer() {
             <ul className="flex flex-col gap-3 text-sm items-center md:items-start">
               <li>
                 <a
-                  href="mailto:contact@twiyhealth.com"
+                  href="mailto:sales@twiyhealth.com"
                   className="text-[#CBD5E1] hover:text-[#F0EEE8] transition-colors duration-300 inline-flex items-center gap-1.5 group"
                 >
-                  contact@twiyhealth.com
+                  sales@twiyhealth.com
                   <ArrowUpRight
                     size={11}
                     weight="light"
@@ -84,10 +84,10 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="mailto:info@twiyhealth.com"
+                  href="mailto:sales@twiyhealth.com"
                   className="text-[#CBD5E1] hover:text-[#F0EEE8] transition-colors duration-300 inline-flex items-center gap-1.5 group"
                 >
-                  info@twiyhealth.com
+                  sales@twiyhealth.com
                   <ArrowUpRight
                     size={11}
                     weight="light"

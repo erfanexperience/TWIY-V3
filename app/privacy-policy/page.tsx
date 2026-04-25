@@ -121,7 +121,7 @@ export default function PrivacyPolicyPage() {
               <Row label="g) Message frequency:" value="Varies based on your request; not a fixed recurring schedule." />
               <Row label="h) Rates:" value="Message and data rates may apply." />
               <Row label="i) Opt-out:" value="Reply STOP at any time to cancel SMS from this number." />
-              <Row label="j) Help:" value={<>Reply HELP for assistance or contact us at <a href="mailto:contact@twiyhealth.com" className="text-[#2DD4BF]">contact@twiyhealth.com</a>.</>} />
+              <Row label="j) Help:" value={<>Reply HELP for assistance or contact us at <a href="mailto:sales@twiyhealth.com" className="text-[#2DD4BF]">sales@twiyhealth.com</a>.</>} />
               <Row label="k) No purchase required:" value="Consent is not a condition of purchasing any goods or services." />
               <Row label="l) Carrier disclaimer:" value="Carriers are not liable for delayed or undelivered messages." />
               <Row label="m) Policies:" value={<><Link href="/privacy-policy" className="text-[#2DD4BF] hover:text-[#5EEAD4]">Privacy Policy</Link> | <Link href="/terms-and-conditions" className="text-[#2DD4BF] hover:text-[#5EEAD4]">Terms &amp; Conditions</Link></>} />
@@ -201,7 +201,7 @@ export default function PrivacyPolicyPage() {
             <p>Questions about this Privacy Policy, our data practices, or this SMS program may be directed to:</p>
             <div className="mt-4 space-y-2">
               <p><strong className="text-[#CBD5E1]">Email:</strong>{' '}
-                <a href="mailto:contact@twiyhealth.com" className="text-[#2DD4BF] hover:text-[#5EEAD4] transition-colors">contact@twiyhealth.com</a>
+                <a href="mailto:sales@twiyhealth.com" className="text-[#2DD4BF] hover:text-[#5EEAD4] transition-colors">sales@twiyhealth.com</a>
               </p>
               <p><strong className="text-[#CBD5E1]">Phone:</strong>{' '}
                 <a href="tel:+17542311006" className="text-[#2DD4BF] hover:text-[#5EEAD4] transition-colors">(754) 231-1006</a>

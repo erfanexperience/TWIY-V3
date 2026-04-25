@@ -9,7 +9,7 @@ export async function POST(req: Request) {
     const { firstName, lastName, email, phone, organization, role, interest, message } = body;
 
     await resend.emails.send({
-      from: 'TWIY Health <onboarding@resend.dev>',
+      from: 'TWIY Health <sales@twiyhealth.com>',
       to: 'sales@twiyhealth.com',
       replyTo: email,
       subject: `New Consultation Request — ${firstName} ${lastName}`,

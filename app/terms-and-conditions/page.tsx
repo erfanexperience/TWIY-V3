@@ -108,8 +108,9 @@ export default function TermsPage() {
                 <Row label="Brand:" value="TWIY Health" />
                 <Row label="Intake number (calls):" value={<a href="tel:+17542311006" className="text-[#2DD4BF]">(754) 231-1006</a>} />
                 <Row label="Intake number (SMS):" value={<a href="tel:+17542311006" className="text-[#2DD4BF]">(754) 231-1006</a>} />
-                <Row label="CTA / Opt-in method #1 — Text-in:" value="Text us at (754) 231-1006 from your mobile phone — any first message or a keyword such as START constitutes your request for us to respond by SMS about your inquiry." />
-                <Row label="CTA / Opt-in method #2 — Call-in:" value="Call us at (754) 231-1006; if you agree during the call to receive text messages for scheduling or coordination, that is your consent for SMS for that purpose." />
+                <Row label="CTA / Opt-in method #1 — Web form (primary):" value="Submit the consultation form at https://twiyhealth.com/book-consultation with your phone number and check the unchecked SMS consent box. Submitting with that box checked is your express written consent for transactional SMS. A separate optional checkbox covers promotional SMS." />
+                <Row label="CTA / Opt-in method #2 — Text-in:" value="Text us at (754) 231-1006 from your mobile phone — any first message or a keyword such as START constitutes your request for us to respond by SMS about your inquiry." />
+                <Row label="CTA / Opt-in method #3 — Call-in:" value="Call us at (754) 231-1006; if you agree during the call to receive text messages for scheduling or coordination, that is your consent for SMS for that purpose." />
                 <Row label="Website browsing:" value="Browsing this website alone does not enroll you in SMS." />
                 <Row label="Consent:" value="Not a condition of purchase of any good or service." />
                 <Row label="Message types:" value="Transactional/relationship messages related to your request (confirmations, clarifications, scheduling updates)." />
@@ -123,7 +124,7 @@ export default function TermsPage() {
             </SubSection>
 
             <SubSection title="3.2 Consent — detailed">
-              <p>You consent to receive SMS from us when you affirmatively initiate contact using the published number: by texting (including &ldquo;START&rdquo; or any ordinary first message) or by calling and agreeing to SMS where offered. Browsing the website alone does not enroll you. Consent is not a condition of purchase of any good or service where that distinction applies under applicable law.</p>
+              <p>You consent to receive SMS from us when you affirmatively initiate contact using one of three methods: (1) submitting our consultation form at https://twiyhealth.com/book-consultation with the SMS consent box checked, (2) texting our published number (including &ldquo;START&rdquo; or any ordinary first message), or (3) calling and agreeing to SMS where offered. Browsing the website alone does not enroll you. Consent is not a condition of purchase of any good or service where that distinction applies under applicable law.</p>
             </SubSection>
 
             <SubSection title="3.3 Use of mobile information">

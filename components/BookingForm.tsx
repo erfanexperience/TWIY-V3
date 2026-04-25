@@ -209,10 +209,10 @@ export default function BookingForm() {
                       </div>
                     ))}
                     <p className="text-[10px] text-[#3D4A5C] leading-relaxed pt-1">
-                      By texting or calling (754) 231-1006, you consent to receive transactional SMS from TWIY Health. Msg &amp; data rates may apply. Reply STOP to cancel.{' '}
+                      By submitting the form with the SMS consent box checked, or by texting or calling (754) 231-1006, you consent to receive transactional SMS from TWIY Health. Msg frequency varies. Msg &amp; data rates may apply. Reply STOP to cancel, HELP for help. Consent is not a condition of purchase.{' '}
                       <a href="/privacy-policy" className="underline underline-offset-2 hover:text-[#64748B] transition-colors">Privacy Policy</a>
                       {' '}|{' '}
-                      <a href="/terms-and-conditions" className="underline underline-offset-2 hover:text-[#64748B] transition-colors">Terms</a>
+                      <a href="/terms-and-conditions" className="underline underline-offset-2 hover:text-[#64748B] transition-colors">Terms &amp; Conditions</a>
                     </p>
                   </div>
                 </div>

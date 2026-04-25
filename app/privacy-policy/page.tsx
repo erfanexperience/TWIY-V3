@@ -115,16 +115,17 @@ export default function PrivacyPolicyPage() {
               <Row label="a) Brand / legal name:" value="TWIY Health" />
               <Row label="b) Program purpose:" value="Transactional and relationship SMS tied to healthcare case intake coordination; no marketing or promotional messages." />
               <Row label="c) Published intake number:" value={<a href="tel:+17542311006" className="text-[#2DD4BF]">(754) 231-1006</a>} />
-              <Row label="d) Opt-in method #1 — Text-in:" value="You consent by sending any text message (including START or any natural first message) to (754) 231-1006 from your mobile phone." />
-              <Row label="e) Opt-in method #2 — Call-in:" value="You consent by calling (754) 231-1006 and agreeing during the call to receive SMS for scheduling or coordination." />
-              <Row label="f) Website browsing:" value="Browsing this website alone does not enroll you in SMS." />
-              <Row label="g) Message frequency:" value="Varies based on your request; not a fixed recurring schedule." />
-              <Row label="h) Rates:" value="Message and data rates may apply." />
-              <Row label="i) Opt-out:" value="Reply STOP at any time to cancel SMS from this number." />
-              <Row label="j) Help:" value={<>Reply HELP for assistance or contact us at <a href="mailto:sales@twiyhealth.com" className="text-[#2DD4BF]">sales@twiyhealth.com</a>.</>} />
-              <Row label="k) No purchase required:" value="Consent is not a condition of purchasing any goods or services." />
-              <Row label="l) Carrier disclaimer:" value="Carriers are not liable for delayed or undelivered messages." />
-              <Row label="m) Policies:" value={<><Link href="/privacy-policy" className="text-[#2DD4BF] hover:text-[#5EEAD4]">Privacy Policy</Link> | <Link href="/terms-and-conditions" className="text-[#2DD4BF] hover:text-[#5EEAD4]">Terms &amp; Conditions</Link></>} />
+              <Row label="d) Opt-in method #1 — Web form:" value={<>You consent by submitting the consultation form at <Link href="/book-consultation" className="text-[#2DD4BF] hover:text-[#5EEAD4]">twiyhealth.com/book-consultation</Link> with your phone number and checking the SMS consent checkbox on that form.</>} />
+              <Row label="e) Opt-in method #2 — Text-in:" value="You consent by sending any text message (including START or any natural first message) to (754) 231-1006 from your mobile phone." />
+              <Row label="f) Opt-in method #3 — Call-in:" value="You consent by calling (754) 231-1006 and agreeing during the call to receive SMS for scheduling or coordination." />
+              <Row label="g) Website browsing:" value="Browsing this website alone does not enroll you in SMS." />
+              <Row label="h) Message frequency:" value="Varies based on your request; not a fixed recurring schedule." />
+              <Row label="i) Rates:" value="Message and data rates may apply." />
+              <Row label="j) Opt-out:" value="Reply STOP at any time to cancel SMS from this number." />
+              <Row label="k) Help:" value={<>Reply HELP for assistance or contact us at <a href="mailto:sales@twiyhealth.com" className="text-[#2DD4BF]">sales@twiyhealth.com</a>.</>} />
+              <Row label="l) No purchase required:" value="Consent is not a condition of purchasing any goods or services." />
+              <Row label="m) Carrier disclaimer:" value="Carriers are not liable for delayed or undelivered messages." />
+              <Row label="n) Policies:" value={<><Link href="/privacy-policy" className="text-[#2DD4BF] hover:text-[#5EEAD4]">Privacy Policy</Link> | <Link href="/terms-and-conditions" className="text-[#2DD4BF] hover:text-[#5EEAD4]">Terms &amp; Conditions</Link></>} />
             </SMSBox>
 
             <SubSection title="3.1 Brand identification">
@@ -134,6 +135,7 @@ export default function PrivacyPolicyPage() {
             <SubSection title="3.2 Public call to action — how you opt in (all methods we use)">
               <p>You are not enrolled in SMS by browsing this website alone. Consent is collected only through affirmative, user-initiated contact with our published number or channel, as follows:</p>
               <ul className="list-disc list-outside ml-5 space-y-2 mt-2">
+                <li><strong className="text-[#CBD5E1]">Web form (online opt-in):</strong> You submit the consultation form at <Link href="/book-consultation" className="text-[#2DD4BF] hover:text-[#5EEAD4]">twiyhealth.com/book-consultation</Link> with your phone number and explicitly check the SMS consent checkbox on that form. The checkbox reads: &ldquo;By providing my phone number and checking this box, I consent to receive transactional SMS messages from TWIY Health related to my consultation request.&rdquo; Checking the box and submitting the form is your consent.</li>
                 <li><strong className="text-[#CBD5E1]">Text-in (mobile originated):</strong> You send a text message from your mobile phone to (754) 231-1006. That includes any natural first message or a keyword such as START. Sending that message means you are asking TWIY Health to reply by SMS about your inquiry.</li>
                 <li><strong className="text-[#CBD5E1]">Call-in:</strong> You call (754) 231-1006. If, during the call, you agree to receive SMS (for example to confirm details, schedule, or continue the conversation by text), that agreement is your consent for SMS for that coordination thread.</li>
                 <li><strong className="text-[#CBD5E1]">Website context:</strong> The same number appears on our public website (footer and contact-related areas). Before you text or call, you can read this Privacy Policy and our <Link href="/terms-and-conditions" className="text-[#2DD4BF] hover:text-[#5EEAD4]">Terms</Link>.</li>

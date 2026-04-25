@@ -37,6 +37,8 @@ interface FormState {
   role: string;
   interest: string;
   message: string;
+  consentTransactional: boolean;
+  consentNotMarketing: boolean;
 }
 
 const empty: FormState = {
@@ -48,6 +50,8 @@ const empty: FormState = {
   role: '',
   interest: '',
   message: '',
+  consentTransactional: false,
+  consentNotMarketing: false,
 };
 
 export default function BookingForm() {
@@ -55,12 +59,25 @@ export default function BookingForm() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
+  const [consentError, setConsentError] = useState(false);
+
   const set = (field: keyof FormState) => (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => setForm((prev) => ({ ...prev, [field]: e.target.value }));
 
+  const setCheck = (field: 'consentTransactional' | 'consentNotMarketing') => (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setForm((prev) => ({ ...prev, [field]: e.target.checked }));
+    if (field === 'consentTransactional') setConsentError(false);
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (form.phone && !form.consentTransactional) {
+      setConsentError(true);
+      return;
+    }
     setLoading(true);
     try {
       const res = await fetch('/api/contact', {
@@ -192,7 +209,7 @@ export default function BookingForm() {
                       </div>
                     ))}
                     <p className="text-[10px] text-[#3D4A5C] leading-relaxed pt-1">
-                      By texting or calling (754) 231-1006, you consent to receive transactional SMS from TWIY Health. Msg frequency varies. Msg &amp; data rates may apply. Reply STOP to cancel, HELP for help. Consent is not a condition of purchase.{' '}
+                      By texting or calling (754) 231-1006, you consent to receive transactional SMS from TWIY Health. Msg &amp; data rates may apply. Reply STOP to cancel.{' '}
                       <a href="/privacy-policy" className="underline underline-offset-2 hover:text-[#64748B] transition-colors">Privacy Policy</a>
                       {' '}|{' '}
                       <a href="/terms-and-conditions" className="underline underline-offset-2 hover:text-[#64748B] transition-colors">Terms</a>
@@ -286,6 +303,41 @@ export default function BookingForm() {
                     />
                   </Field>
 
+                  {/* Consent checkboxes */}
+                  <div className="space-y-4 pt-1">
+                    <label className="flex items-start gap-3 cursor-pointer group">
+                      <input
+                        type="checkbox"
+                        checked={form.consentTransactional}
+                        onChange={setCheck('consentTransactional')}
+                        className="mt-0.5 h-4 w-4 shrink-0 rounded border border-white/20 bg-[#0A0F1C] accent-[#B7E4FA] cursor-pointer"
+                      />
+                      <span className="text-[11px] text-[#64748B] leading-relaxed group-hover:text-[#94A3B8] transition-colors">
+                        By providing my phone number and checking this box, I consent to receive transactional SMS messages from TWIY Health related to my consultation request (e.g., scheduling confirmations and follow-up coordination). Msg frequency varies. Msg &amp; data rates may apply. Reply STOP to cancel, HELP for help. Consent is not a condition of purchase.{' '}
+                        <a href="/privacy-policy" className="underline underline-offset-2 hover:text-[#94A3B8] transition-colors">Privacy Policy</a>
+                        {' '}|{' '}
+                        <a href="/terms-and-conditions" className="underline underline-offset-2 hover:text-[#94A3B8] transition-colors">Terms &amp; Conditions</a>
+                      </span>
+                    </label>
+                    {consentError && (
+                      <p className="text-[11px] text-red-400 -mt-1 pl-7">
+                        Please check this box to consent to SMS if you provide a phone number.
+                      </p>
+                    )}
+
+                    <label className="flex items-start gap-3 cursor-pointer group">
+                      <input
+                        type="checkbox"
+                        checked={form.consentNotMarketing}
+                        onChange={setCheck('consentNotMarketing')}
+                        className="mt-0.5 h-4 w-4 shrink-0 rounded border border-white/20 bg-[#0A0F1C] accent-[#B7E4FA] cursor-pointer"
+                      />
+                      <span className="text-[11px] text-[#64748B] leading-relaxed group-hover:text-[#94A3B8] transition-colors">
+                        I understand that SMS messages from TWIY Health are for transactional and coordination purposes only. No marketing or promotional messages will be sent. I may opt out at any time by replying STOP.
+                      </span>
+                    </label>
+                  </div>
+
                   {/* Submit */}
                   <div className="pt-2">
                     <button
@@ -311,10 +363,11 @@ export default function BookingForm() {
                       We typically respond within one business day.
                     </p>
                     <p className="mt-3 text-[10px] text-[#3D4A5C] leading-relaxed max-w-[52ch]">
-                      By submitting this form with a phone number, you consent to receive transactional SMS from TWIY Health related to your consultation request. Msg frequency varies. Msg &amp; data rates may apply. Reply STOP to cancel, HELP for help. Consent is not a condition of purchase.{' '}
+                      By submitting this form, you agree to our{' '}
                       <a href="/privacy-policy" className="underline underline-offset-2 hover:text-[#64748B] transition-colors">Privacy Policy</a>
-                      {' '}|{' '}
-                      <a href="/terms-and-conditions" className="underline underline-offset-2 hover:text-[#64748B] transition-colors">Terms &amp; Conditions</a>
+                      {' '}and{' '}
+                      <a href="/terms-and-conditions" className="underline underline-offset-2 hover:text-[#64748B] transition-colors">Terms &amp; Conditions</a>.
+                      {' '}SMS consent is collected separately above and is not a condition of purchase.
                     </p>
                   </div>
                 </form>

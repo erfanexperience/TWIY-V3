@@ -6,7 +6,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    const { firstName, lastName, email, phone, organization, role, interest, message } = body;
+    const { firstName, lastName, email, phone, organization, role, interest, message, consentTransactional, consentNotMarketing } = body;
 
     await resend.emails.send({
       from: 'TWIY Health <sales@twiyhealth.com>',
@@ -32,6 +32,10 @@ export async function POST(req: Request) {
                 <td style="padding: 8px 0;">${role || '—'}</td></tr>
             <tr><td style="padding: 8px 0; color: #555;"><strong>Interest</strong></td>
                 <td style="padding: 8px 0;">${interest || '—'}</td></tr>
+            <tr><td style="padding: 8px 0; color: #555;"><strong>SMS Consent</strong></td>
+                <td style="padding: 8px 0;">${consentTransactional ? '✅ Gave transactional SMS consent' : '❌ Did not give SMS consent'}</td></tr>
+            <tr><td style="padding: 8px 0; color: #555;"><strong>No-Marketing Ack</strong></td>
+                <td style="padding: 8px 0;">${consentNotMarketing ? '✅ Acknowledged no marketing SMS' : '—'}</td></tr>
           </table>
 
           ${message ? `

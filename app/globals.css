@@ -117,6 +117,23 @@ section h4 {
   font-variant-numeric: tabular-nums;
 }
 
+/* ── Form select dark dropdown ── */
+select {
+  background-color: #0A0F1C;
+  color: #F0EEE8;
+}
+
+select option {
+  background-color: #0A0F1C;
+  color: #F0EEE8;
+}
+
+select option:checked,
+select option:hover {
+  background-color: #1a3a6a;
+  color: #B7E4FA;
+}
+
 /* ── Blue theme: permanent overrides for hardcoded teal Tailwind classes ── */
 .text-\[\#2DD4BF\] { color: #B7E4FA !important; }
 .bg-\[\#2DD4BF\] { background-color: #B7E4FA !important; color: #020814 !important; }

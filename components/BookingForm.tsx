@@ -338,7 +338,7 @@ function Field({
   children: React.ReactElement;
 }) {
   const inputClass =
-    'w-full bg-white/[0.03] border border-white/[0.08] rounded-xl px-4 py-3 text-sm text-white placeholder:text-white/25 focus:outline-none focus:border-[#2DD4BF]/50 focus:bg-white/[0.05] transition-all duration-300';
+    'w-full bg-[#0A0F1C] border border-white/[0.08] rounded-xl px-4 py-3 text-sm text-white placeholder:text-white/25 focus:outline-none focus:border-[#2DD4BF]/50 focus:bg-[#0D1422] transition-all duration-300';
 
   const child = children as React.ReactElement<{ className?: string }>;
 

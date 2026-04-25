@@ -6,7 +6,6 @@ import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUpRight } from '@phosphor-icons/react';
 import { MagneticButton } from '@/components/ui/MagneticButton';
-import ThemeToggle from '@/components/ThemeToggle';
 
 const navLinks = [
   { label: 'About Us', href: '/about' },
@@ -57,8 +56,6 @@ export default function Navigation() {
                 {link.label}
               </Link>
             ))}
-
-            <ThemeToggle />
 
             <MagneticButton>
               <Link
@@ -136,9 +133,7 @@ export default function Navigation() {
                   <ArrowUpRight size={12} weight="bold" />
                 </span>
               </motion.a>
-              <div className="mt-6">
-                <ThemeToggle />
-              </div>
+
             </nav>
           </motion.div>
         )}

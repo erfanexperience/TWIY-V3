@@ -2,20 +2,20 @@
 
 @layer base {
   :root {
-    --gradient-color: #2DD4BF;
-    --sparkles-color: #2DD4BF;
+    --gradient-color: #B7E4FA;
+    --sparkles-color: #B7E4FA;
   }
 }
 
 @theme {
   /* ── Brand tokens ── */
-  --color-base:         #06060A;
-  --color-surface:      #0E0E14;
-  --color-card:         #13131C;
-  --color-accent:       #2DD4BF;
-  --color-accent-hover: #5EEAD4;
-  --color-accent-dim:   rgba(45, 212, 191, 0.08);
-  --color-accent-ring:  rgba(45, 212, 191, 0.2);
+  --color-base:         #020814;
+  --color-surface:      #060F20;
+  --color-card:         #081226;
+  --color-accent:       #B7E4FA;
+  --color-accent-hover: #85D0F5;
+  --color-accent-dim:   rgba(183, 228, 250, 0.08);
+  --color-accent-ring:  rgba(183, 228, 250, 0.2);
 
   --color-text-primary:   #F0EEE8;
   --color-text-secondary: #64748B;
@@ -35,12 +35,12 @@
 /* ── Global reset ── */
 html {
   scroll-behavior: smooth;
-  background-color: #06060A;
+  background-color: #020814;
 }
 
 body {
   font-family: var(--font-sans);
-  background-color: #06060A;
+  background-color: #020814;
   color: #F0EEE8;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -55,8 +55,8 @@ body::before {
   z-index: 0;
   pointer-events: none;
   background:
-    radial-gradient(ellipse 80% 60% at 8%  12%, rgba(45,212,191,0.055) 0%, transparent 70%),
-    radial-gradient(ellipse 60% 50% at 92% 88%, rgba(45,212,191,0.035) 0%, transparent 70%);
+    radial-gradient(ellipse 80% 60% at 8%  12%, rgba(15,40,100,0.55) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 50% at 92% 88%, rgba(10,30,80,0.40) 0%, transparent 70%);
 }
 
 /* ── Subtle grain overlay ── */
@@ -73,7 +73,6 @@ body::after {
 }
 
 /* ── Main content sits above fixed overlays ── */
-/* header is intentionally excluded — it uses fixed positioning */
 main, footer {
   position: relative;
   z-index: 2;
@@ -91,7 +90,7 @@ main, footer {
 
 /* ── Focus styles ── */
 :focus-visible {
-  outline: 1.5px solid #2DD4BF;
+  outline: 1.5px solid #B7E4FA;
   outline-offset: 3px;
   border-radius: 6px;
 }
@@ -116,4 +115,29 @@ section h4 {
 /* ── Tabular figures for numbers ── */
 .tabular {
   font-variant-numeric: tabular-nums;
+}
+
+/* ── Blue theme: permanent overrides for hardcoded teal Tailwind classes ── */
+.text-\[\#2DD4BF\] { color: #B7E4FA !important; }
+.bg-\[\#2DD4BF\] { background-color: #B7E4FA !important; color: #020814 !important; }
+.hover\:bg-\[\#5EEAD4\]:hover { background-color: #85D0F5 !important; color: #020814 !important; }
+.border-\[\#2DD4BF\] { border-color: #B7E4FA !important; }
+.ring-\[\#2DD4BF\]\/25 { --tw-ring-color: rgba(183,228,250,0.25) !important; }
+.hover\:ring-\[\#2DD4BF\]\/25:hover { --tw-ring-color: rgba(183,228,250,0.25) !important; }
+
+/* Section dark backgrounds → deep navy */
+.bg-\[\#06060A\] { background-color: #020814 !important; }
+.bg-\[\#030306\] { background-color: #01060F !important; }
+.bg-\[\#070709\] { background-color: #030A18 !important; }
+.bg-\[\#0A0A10\] { background-color: #040C1C !important; }
+.bg-\[\#0E0E14\] { background-color: #060F20 !important; }
+.bg-\[\#13131C\] { background-color: #081226 !important; }
+
+/* Hero overlays → subtle dark blue */
+.bg-black\/10 { background-color: rgba(5,20,70,0.10) !important; }
+.bg-black\/\[0\.5\] { background-color: rgba(5,20,70,0.10) !important; }
+
+/* Sparkle glow */
+.before\:bg-\[radial-gradient\(circle_at_bottom_center\,\#2DD4BF\,transparent_65\%\)\]::before {
+  background: radial-gradient(circle at bottom center, #1a4a8a, transparent 65%) !important;
 }

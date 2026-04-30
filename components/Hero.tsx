@@ -12,7 +12,8 @@ export default function Hero() {
       mediaSrc="/Assets/Hero-Video.mp4"
       posterSrc="/Assets/Hero-Image.webp"
       bgImageSrc="/Assets/Hero-Image.webp"
-      title="Surgical Excellence Across The Southeast"
+      title="Surgical Excellence"
+      tagline="Every case, every surgeon, every time."
     >
       <div className="max-w-[1280px] mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20 items-end">

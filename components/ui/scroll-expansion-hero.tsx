@@ -10,6 +10,7 @@ interface ScrollExpandMediaProps {
   posterSrc?: string;
   bgImageSrc: string;
   title?: string;
+  tagline?: string;
   children?: ReactNode;
 }
 
@@ -18,6 +19,7 @@ const ScrollExpandMedia = ({
   posterSrc,
   bgImageSrc,
   title,
+  tagline,
   children,
 }: ScrollExpandMediaProps) => {
   // Only React state that causes structural DOM changes (rare — at progress thresholds)
@@ -254,6 +256,14 @@ const ScrollExpandMedia = ({
                   >
                     {title}
                   </h2>
+                  {tagline && (
+                    <p
+                      className="mt-3 text-[0.85rem] sm:text-[1.1rem] lg:text-[1.35rem] font-light tracking-[0.18em] uppercase"
+                      style={{ color: 'rgba(255,255,255,0.55)' }}
+                    >
+                      {tagline}
+                    </p>
+                  )}
                   {/* Teal underline glow */}
                   <div
                     className="mt-4 mx-auto h-[2px] w-24 rounded-full bg-[#2DD4BF]"

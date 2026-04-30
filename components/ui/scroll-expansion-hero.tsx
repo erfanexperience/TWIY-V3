@@ -258,8 +258,8 @@ const ScrollExpandMedia = ({
                   </h2>
                   {tagline && (
                     <p
-                      className="mt-3 text-[0.85rem] sm:text-[1.1rem] lg:text-[1.35rem] font-light tracking-[0.18em] uppercase"
-                      style={{ color: 'rgba(255,255,255,0.55)' }}
+                      className="mt-3 text-[1.1rem] sm:text-[1.6rem] lg:text-[2.2rem] font-black tracking-[0.08em] uppercase"
+                      style={{ color: 'rgba(255,255,255,0.85)', textShadow: '0 2px 20px rgba(0,0,0,0.8)' }}
                     >
                       {tagline}
                     </p>

@@ -112,7 +112,7 @@ export default function TechExpertise() {
             <div className="rounded-[2rem] bg-white/[0.015] ring-1 ring-white/[0.06] p-1.5">
               <div className="rounded-[1.5rem] overflow-hidden shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] relative bg-[#0A0A10]">
                 <Image
-                  src="/Assets/4.webp"
+                  src="/Assets/4-2.webp"
                   alt="Foot and ankle X-ray for surgical planning — TWIY Health technology expertise"
                   width={720}
                   height={900}

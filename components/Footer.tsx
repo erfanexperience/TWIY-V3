@@ -23,7 +23,7 @@ export default function Footer() {
           <div className="flex flex-col items-center md:items-start text-center md:text-left">
             <a href="#" aria-label="TWIY Health — Home">
               <Image
-                src="/Assets/logo.png"
+                src="/Assets/logo v2.webp"
                 alt="TWIY Health"
                 width={96}
                 height={32}

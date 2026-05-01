@@ -37,46 +37,6 @@ const ScrollExpandMedia = ({
   const videoContainerRef = useRef<HTMLDivElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
   const headingRef = useRef<HTMLDivElement>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  // Ping-pong loop: play forward → scrub backward → repeat
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-
-    let rafId: number;
-    let prevTimestamp: number | null = null;
-    let reversing = false;
-
-    const scrubBack = (timestamp: number) => {
-      if (prevTimestamp === null) prevTimestamp = timestamp;
-      const elapsed = (timestamp - prevTimestamp) / 1000;
-      prevTimestamp = timestamp;
-
-      const next = video.currentTime - elapsed;
-      if (next <= 0) {
-        video.currentTime = 0;
-        reversing = false;
-        prevTimestamp = null;
-        video.play();
-        return;
-      }
-      video.currentTime = next;
-      rafId = requestAnimationFrame(scrubBack);
-    };
-
-    const handleEnded = () => {
-      reversing = true;
-      prevTimestamp = null;
-      rafId = requestAnimationFrame(scrubBack);
-    };
-
-    video.addEventListener('ended', handleEnded);
-    return () => {
-      video.removeEventListener('ended', handleEnded);
-      cancelAnimationFrame(rafId);
-    };
-  }, []);
 
   // Apply all visual changes directly to the DOM — no setState, no re-render
   const applyProgress = (p: number) => {
@@ -236,11 +196,11 @@ const ScrollExpandMedia = ({
               >
                 <div className="relative w-full h-full pointer-events-none">
                   <video
-                    ref={videoRef}
                     src={mediaSrc}
                     poster={posterSrc}
                     autoPlay
                     muted
+                    loop
                     playsInline
                     preload="auto"
                     className="w-full h-full object-cover"
@@ -278,7 +238,7 @@ const ScrollExpandMedia = ({
                   />
                   <div className="mb-2">
                     <Image
-                      src="/Assets/TWIY.webp"
+                      src="/Assets/TWIY v2.webp"
                       alt="TWIY Health"
                       width={200}
                       height={60}

@@ -36,7 +36,7 @@ export default function Navigation() {
           {/* Logo */}
           <Link href="/" aria-label="TWIY Health — Home" className="flex-shrink-0">
             <Image
-              src="/Assets/logo.png"
+              src="/Assets/logo v2.webp"
               alt="TWIY Health"
               width={110}
               height={36}

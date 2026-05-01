@@ -113,7 +113,7 @@ export default function BookingForm() {
         <div className="max-w-[1280px] mx-auto px-6 lg:px-10 h-18 py-5 flex items-center justify-between">
           <Link href="/" aria-label="TWIY Health — Home">
             <Image
-              src="/Assets/logo.png"
+              src="/Assets/logo v2.webp"
               alt="TWIY Health"
               width={110}
               height={36}

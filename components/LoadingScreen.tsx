@@ -82,7 +82,7 @@ export default function LoadingScreen() {
             style={{ opacity: fading ? 0 : 1, transform: fading ? 'translateY(-8px)' : 'translateY(0)' }}
           >
             <Image
-              src="/Assets/logo.png"
+              src="/Assets/logo v2.webp"
               alt="TWIY Health"
               width={180}
               height={60}

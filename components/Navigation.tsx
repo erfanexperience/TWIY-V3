@@ -38,9 +38,9 @@ export default function Navigation() {
             <Image
               src="/Assets/logo v2.webp"
               alt="TWIY Health"
-              width={110}
-              height={36}
-              className="h-8 w-auto object-contain"
+              width={160}
+              height={52}
+              className="h-12 w-auto object-contain"
               priority
             />
           </Link>

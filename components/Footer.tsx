@@ -25,9 +25,9 @@ export default function Footer() {
               <Image
                 src="/Assets/logo v2.webp"
                 alt="TWIY Health"
-                width={96}
-                height={32}
-                className="h-7 w-auto object-contain mb-5 opacity-70 hover:opacity-100 transition-opacity duration-300"
+                width={140}
+                height={46}
+                className="h-10 w-auto object-contain mb-5 opacity-70 hover:opacity-100 transition-opacity duration-300"
               />
             </a>
             <p className="text-[#64748B] text-sm leading-relaxed max-w-[32ch]">

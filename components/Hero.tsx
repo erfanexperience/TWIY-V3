@@ -9,7 +9,7 @@ export default function Hero() {
   return (
     <ScrollExpandMedia
       mediaType="video"
-      mediaSrc="/Assets/Hero-Video-2.mp4"
+      mediaSrc="/Assets/Hero-Video-4.mp4"
       posterSrc="/Assets/Hero-Image.webp"
       bgImageSrc="/Assets/Hero-Image.webp"
       title="Surgical Excellence"

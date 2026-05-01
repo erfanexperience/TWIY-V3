@@ -240,9 +240,9 @@ const ScrollExpandMedia = ({
                     <Image
                       src="/Assets/TWIY v2.webp"
                       alt="TWIY Health"
-                      width={320}
-                      height={96}
-                      className="h-[72px] w-auto object-contain mx-auto"
+                      width={304}
+                      height={91}
+                      className="h-[68px] w-auto object-contain mx-auto"
                       priority
                     />
                   </div>

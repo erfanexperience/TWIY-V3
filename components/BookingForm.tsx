@@ -38,7 +38,6 @@ interface FormState {
   interest: string;
   message: string;
   consentTransactional: boolean;
-  consentNotMarketing: boolean;
 }
 
 const empty: FormState = {
@@ -51,7 +50,6 @@ const empty: FormState = {
   interest: '',
   message: '',
   consentTransactional: false,
-  consentNotMarketing: false,
 };
 
 export default function BookingForm() {
@@ -65,7 +63,7 @@ export default function BookingForm() {
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => setForm((prev) => ({ ...prev, [field]: e.target.value }));
 
-  const setCheck = (field: 'consentTransactional' | 'consentNotMarketing') => (
+  const setCheck = (field: 'consentTransactional') => (
     e: React.ChangeEvent<HTMLInputElement>
   ) => {
     setForm((prev) => ({ ...prev, [field]: e.target.checked }));
@@ -209,7 +207,7 @@ export default function BookingForm() {
                       </div>
                     ))}
                     <p className="text-[10px] text-[#3D4A5C] leading-relaxed pt-1">
-                      By submitting the form with the SMS consent box checked, or by texting or calling (754) 231-1006, you consent to receive transactional SMS from TWIY Health. Msg frequency varies. Msg &amp; data rates may apply. Reply STOP to cancel, HELP for help. Consent is not a condition of purchase.{' '}
+                      SMS consent is collected separately via the checkbox on the form. Msg frequency varies. Msg &amp; data rates may apply. Reply STOP to opt out, HELP for help. Consent is not a condition of purchase.{' '}
                       <a href="/privacy-policy" className="underline underline-offset-2 hover:text-[#64748B] transition-colors">Privacy Policy</a>
                       {' '}|{' '}
                       <a href="/terms-and-conditions" className="underline underline-offset-2 hover:text-[#64748B] transition-colors">Terms &amp; Conditions</a>
@@ -303,7 +301,7 @@ export default function BookingForm() {
                     />
                   </Field>
 
-                  {/* Consent checkboxes */}
+                  {/* Consent checkbox */}
                   <div className="space-y-4 pt-1">
                     <label className="flex items-start gap-3 cursor-pointer group">
                       <input
@@ -313,7 +311,7 @@ export default function BookingForm() {
                         className="mt-0.5 h-4 w-4 shrink-0 rounded border border-white/20 bg-[#0A0F1C] accent-[#B7E4FA] cursor-pointer"
                       />
                       <span className="text-[11px] text-[#64748B] leading-relaxed group-hover:text-[#94A3B8] transition-colors">
-                        By providing my phone number and checking this box, I consent to receive transactional SMS messages from TWIY Health related to my consultation request (e.g., scheduling confirmations and follow-up coordination). Msg frequency varies. Msg &amp; data rates may apply. Reply STOP to cancel, HELP for help. Consent is not a condition of purchase.{' '}
+                        I agree to receive transactional and relationship text messages from TWIY Health at the phone number I provided – including consultation confirmations, scheduling updates, case-coordination clarifications, and follow-ups. Msg frequency varies. Msg &amp; data rates may apply. Reply STOP to opt out, HELP for help. Consent is not a condition of any purchase.{' '}
                         <a href="/privacy-policy" className="underline underline-offset-2 hover:text-[#94A3B8] transition-colors">Privacy Policy</a>
                         {' '}|{' '}
                         <a href="/terms-and-conditions" className="underline underline-offset-2 hover:text-[#94A3B8] transition-colors">Terms &amp; Conditions</a>
@@ -324,18 +322,6 @@ export default function BookingForm() {
                         Please check this box to consent to SMS if you provide a phone number.
                       </p>
                     )}
-
-                    <label className="flex items-start gap-3 cursor-pointer group">
-                      <input
-                        type="checkbox"
-                        checked={form.consentNotMarketing}
-                        onChange={setCheck('consentNotMarketing')}
-                        className="mt-0.5 h-4 w-4 shrink-0 rounded border border-white/20 bg-[#0A0F1C] accent-[#B7E4FA] cursor-pointer"
-                      />
-                      <span className="text-[11px] text-[#64748B] leading-relaxed group-hover:text-[#94A3B8] transition-colors">
-                        I understand that SMS messages from TWIY Health are for transactional and coordination purposes only. No marketing or promotional messages will be sent. I may opt out at any time by replying STOP.
-                      </span>
-                    </label>
                   </div>
 
                   {/* Submit */}

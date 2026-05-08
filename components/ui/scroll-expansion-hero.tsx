@@ -37,6 +37,7 @@ const ScrollExpandMedia = ({
   const videoContainerRef = useRef<HTMLDivElement>(null);
   const overlayRef = useRef<HTMLDivElement>(null);
   const headingRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   // Apply all visual changes directly to the DOM — no setState, no re-render
   const applyProgress = (p: number) => {
@@ -70,6 +71,23 @@ const ScrollExpandMedia = ({
   useEffect(() => {
     applyProgress(0);
   // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // iOS Safari requires explicit .play() call — autoPlay attr alone is not enough
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    video.muted = true;
+    const attempt = () => video.play().catch(() => {});
+    if (video.readyState >= 2) {
+      attempt();
+    } else {
+      video.addEventListener('canplay', attempt, { once: true });
+    }
+    // Fallback: also retry on first touch in case browser blocked autoplay
+    const onTouch = () => { video.play().catch(() => {}); };
+    document.addEventListener('touchstart', onTouch, { once: true });
+    return () => document.removeEventListener('touchstart', onTouch);
   }, []);
 
   // Event listeners — empty deps so they never re-register during scroll
@@ -196,6 +214,7 @@ const ScrollExpandMedia = ({
               >
                 <div className="relative w-full h-full pointer-events-none">
                   <video
+                    ref={videoRef}
                     src={mediaSrc}
                     poster={posterSrc}
                     autoPlay

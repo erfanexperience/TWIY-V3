@@ -73,28 +73,17 @@ const ScrollExpandMedia = ({
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // iOS Safari requires explicit .play() call — autoPlay attr alone is not enough
+  // iOS Safari requires explicit .play() — autoPlay attr alone is not enough
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
     video.muted = true;
-
-    // Show the container only once actual video frames are rendering
-    const onPlaying = () => {
-      if (videoContainerRef.current) {
-        videoContainerRef.current.style.transition = 'opacity 0.3s ease';
-        videoContainerRef.current.style.opacity = '1';
-      }
-    };
-    video.addEventListener('playing', onPlaying, { once: true });
-
     const attempt = () => video.play().catch(() => {});
     if (video.readyState >= 2) {
       attempt();
     } else {
       video.addEventListener('canplay', attempt, { once: true });
     }
-    // Fallback: also retry on first touch in case browser blocked autoplay
     const onTouch = () => { video.play().catch(() => {}); };
     document.addEventListener('touchstart', onTouch, { once: true });
     return () => document.removeEventListener('touchstart', onTouch);
@@ -220,14 +209,13 @@ const ScrollExpandMedia = ({
                   maxHeight: '85vh',
                   boxShadow: '0px 0px 50px rgba(0,0,0,0.3)',
                   willChange: 'width, height',
-                  opacity: 0,
+                  backgroundColor: '#000',
                 }}
               >
                 <div className="relative w-full h-full pointer-events-none">
                   <video
                     ref={videoRef}
                     src={mediaSrc}
-                    poster={posterSrc}
                     autoPlay
                     muted
                     loop

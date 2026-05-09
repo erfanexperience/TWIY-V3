@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import Image from 'next/image';
 import { motion, useInView, useScroll, useTransform } from 'framer-motion';
 
@@ -13,13 +13,18 @@ export default function CompanyIntro() {
   const ref = useRef(null);
   const sectionRef = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-100px' });
+  const [isMobile, setIsMobile] = useState(false);
 
-  // Parallax: image drifts up slightly as you scroll through
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 768);
+  }, []);
+
+  // Parallax disabled on mobile — hero scroll lock causes jitter
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ['start end', 'end start'],
   });
-  const imgY = useTransform(scrollYProgress, [0, 1], ['4%', '-4%']);
+  const imgY = useTransform(scrollYProgress, [0, 1], isMobile ? ['0%', '0%'] : ['4%', '-4%']);
 
   return (
     <section

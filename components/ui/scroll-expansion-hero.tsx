@@ -73,16 +73,22 @@ const ScrollExpandMedia = ({
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // iOS Safari requires explicit .play() — autoPlay attr alone is not enough
+  // iOS Safari autoplay fix:
+  // React's `muted` prop doesn't always write the HTML attribute, so Safari
+  // treats the video as unmuted and blocks autoplay. Set both the attribute
+  // and the property directly via the ref, then call play() explicitly.
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
+    video.setAttribute('muted', '');
     video.muted = true;
-    const attempt = () => video.play().catch(() => {});
+    video.setAttribute('playsinline', '');
+    video.load();
+    const attempt = () => { video.play().catch(() => {}); };
     if (video.readyState >= 2) {
       attempt();
     } else {
-      video.addEventListener('canplay', attempt, { once: true });
+      video.addEventListener('loadedmetadata', attempt, { once: true });
     }
     const onTouch = () => { video.play().catch(() => {}); };
     document.addEventListener('touchstart', onTouch, { once: true });

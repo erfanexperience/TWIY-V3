@@ -78,6 +78,16 @@ const ScrollExpandMedia = ({
     const video = videoRef.current;
     if (!video) return;
     video.muted = true;
+
+    // Show the container only once actual video frames are rendering
+    const onPlaying = () => {
+      if (videoContainerRef.current) {
+        videoContainerRef.current.style.transition = 'opacity 0.3s ease';
+        videoContainerRef.current.style.opacity = '1';
+      }
+    };
+    video.addEventListener('playing', onPlaying, { once: true });
+
     const attempt = () => video.play().catch(() => {});
     if (video.readyState >= 2) {
       attempt();
@@ -210,6 +220,7 @@ const ScrollExpandMedia = ({
                   maxHeight: '85vh',
                   boxShadow: '0px 0px 50px rgba(0,0,0,0.3)',
                   willChange: 'width, height',
+                  opacity: 0,
                 }}
               >
                 <div className="relative w-full h-full pointer-events-none">

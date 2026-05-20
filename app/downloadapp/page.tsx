@@ -65,9 +65,8 @@ export default function DownloadApp() {
       ) : (
         <div className="w-full max-w-lg text-center">
           <h1 className="text-2xl font-semibold text-white mb-2">App Downloads</h1>
-          <p className="text-[#94A3B8] text-sm mb-10">Select your platform to download.</p>
 
-          {/* Download slots — files will be added here */}
+{/* Download slots — files will be added here */}
           <div className="flex flex-col gap-4">
             <div className="rounded-2xl border border-white/[0.06] bg-white/[0.02] px-6 py-5 text-[#475569] text-sm italic">
               Downloads coming soon — check back shortly.

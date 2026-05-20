@@ -10,7 +10,7 @@ export default function DownloadApp() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (input === 'twiyourteam') {
+    if (input === process.env.NEXT_PUBLIC_DOWNLOAD_PASSWORD) {
       setUnlocked(true);
       setError(false);
     } else {

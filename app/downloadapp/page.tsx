@@ -8,9 +8,14 @@ export default function DownloadApp() {
   const [unlocked, setUnlocked] = useState(false);
   const [error, setError] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (input === process.env.NEXT_PUBLIC_DOWNLOAD_PASSWORD) {
+    const res = await fetch('/api/check-password', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ password: input }),
+    });
+    if (res.ok) {
       setUnlocked(true);
       setError(false);
     } else {

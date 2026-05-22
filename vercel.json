@@ -1,0 +1,17 @@
+{
+  "headers": [
+    {
+      "source": "/downloadapp/(.*)\\.plist",
+      "headers": [
+        { "key": "Content-Type", "value": "text/xml" }
+      ]
+    },
+    {
+      "source": "/downloadapp/(.*)\\.ipa",
+      "headers": [
+        { "key": "Content-Type", "value": "application/octet-stream" },
+        { "key": "Content-Disposition", "value": "attachment; filename=\"TWIY-Health.ipa\"" }
+      ]
+    }
+  ]
+}
